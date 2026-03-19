@@ -80,7 +80,7 @@ python ./graph_model/datapreprocess/extract_complex.py \
 ```
 
 - `--data_dir`  
-  Root directory of the dataset (e.g., extracted MDRDB core set folders)
+  Root directory of the dataset (e.g., extracted MdrDB core set folders)
 
 - `--tsv_path`  
   Path to the provided TSV file: `MdrDB_CoreSet_release_v1.0.2022.tsv`
