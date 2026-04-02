@@ -1,9 +1,9 @@
 # WT-ddG-CriticalEval
 
-**Predicting Drug Resistance from Wild-Type Complex Structures Alone:  
-A Critical Evaluation of the Generalizability of Graph Learning Models**
+**Beyond Random Splits:  
+A Critical Evaluation of Graph Learning Models in Predicting Mutation-Induced Drug Resistance**
 
-> Official implementation (pre-submission)
+> Official implementation of the manuscript currently under review
 
 ---
 
