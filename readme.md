@@ -1,20 +1,21 @@
 # WT-ddG-CriticalEval
 
 **Beyond Random Splits:  
-A Critical Evaluation of Graph Learning Models in Predicting Mutation-Induced Drug Resistance**
+Assessing the Generalization of Graph and Vector Models for WT-Structure-Only Drug Resistance Prediction under Protein-Disjoint Evaluation**
 
-> Official implementation of the manuscript currently under review
+> Official implementation of our paper published in *Computational and Structural Biotechnology Journal*.
 
 ---
 
 ## Overview
 
-This project studies the generalization ability of ΔΔG prediction models under a **WT-only setting**,  
-where only wild-type protein–ligand complex structures are available.
+This repository provides the official implementation of our study on mutation-induced drug resistance prediction under a **WT-complex-structure-only setting**.
 
-Unlike most existing methods that rely on both WT and mutant (MT) structures,  
-this work evaluates a more realistic scenario for drug resistance prediction.  
-This project highlights that random splits may significantly overestimate model generalization.
+In this setting, only wild-type protein–ligand complex structures are used, and mutant protein–ligand complex structures are not required. We evaluate both graph-based and vector-based models for predicting mutation-induced binding free energy changes.
+
+A major focus of this work is the evaluation protocol. We compare conventional random splits with a stricter **protein-disjoint split** based on UniProt IDs, where proteins in the test set do not appear in the training set.
+
+Our results show that random splits can substantially overestimate model performance, while protein-disjoint evaluation reveals limited cross-protein generalization. This repository includes scripts for data preprocessing, feature generation, dataset splitting, model training, and inference.
 
 ### 0. Repository Setup
 
@@ -64,6 +65,7 @@ After that, create the environment using:
 ```bash
 mamba env create -f environment.yml
 ```
+
 ### 3. Data Preprocessing and ESMC Embedding
 
 After preparing the dataset and environment, you can run the full preprocessing pipeline, including complex extraction, ESMC embedding generation, and graph construction.
@@ -256,7 +258,7 @@ cd WT-ddG-CriticalEval/vector_model
 
 ```bash
 ROOT_OUT=../graph_model/kfold_uniprot_runs
-SPLIT_ROOT=../graph_model/kfold_uniprot
+SPLIT_ROOT=../graph_model/dataset/kfold_uniprot
 DATA_DIR=./output
 
 for fold in fold_0 fold_1 fold_2 fold_3 fold_4; do
@@ -302,3 +304,29 @@ python inference.py \
 
 - `--out_dir`  
   Directory to save prediction results
+
+---
+
+## Paper Information
+
+Zongrui Cheng, Haoxin Wu, and Dengming Ming.  
+Beyond Random Splits: Assessing the Generalization of Graph and Vector Models for WT-Structure-Only Drug Resistance Prediction under Protein-Disjoint Evaluation.  
+*Computational and Structural Biotechnology Journal*, Article in Press, 3 Jun 2026.  
+Article ID: 0144.  
+DOI: [10.34133/csbj.0144](https://doi.org/10.34133/csbj.0144)
+
+## Citation
+
+If you use this repository or find this work helpful, please cite:
+
+```bibtex
+@article{cheng2026beyond,
+  title={Beyond Random Splits: Assessing the Generalization of Graph and Vector Models for WT-Structure-Only Drug Resistance Prediction under Protein-Disjoint Evaluation},
+  author={Cheng, Zongrui and Wu, Haoxin and Ming, Dengming},
+  journal={Computational and Structural Biotechnology Journal},
+  year={2026},
+  note={Article in Press},
+  number={0144},
+  doi={10.34133/csbj.0144}
+}
+```
